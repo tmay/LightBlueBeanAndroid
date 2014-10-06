@@ -120,7 +120,6 @@ public class BeanManager {
         if (mScanning) {
             BluetoothAdapter.getDefaultAdapter().stopLeScan(mCallback);
             mScanning = false;
-            completeDiscovery();
         }
     }
 

@@ -101,41 +101,8 @@ public class BlueBeanFinder extends ListFragment implements BeanDiscoveryListene
 
     @Override
     public void onBeanDiscovered(final Bean bean) {
-        //update();
+        update();
         BeanManager.getInstance().cancelDiscovery();
-        bean.disconnect();
-        bean.connect(getActivity(), new BeanListener() {
-            @Override
-            public void onConnected() {
-                Log.i("beanapp", "connected");
-                bean.readTemperature(new Callback<Integer>() {
-                    @Override
-                    public void onResult(Integer result) {
-                        Log.i("temp", result+"");
-                    }
-                });
-            }
-
-            @Override
-            public void onConnectionFailed() {
-                Log.i("beanapp1", "not connected");
-            }
-
-            @Override
-            public void onDisconnected() {
-
-            }
-
-            @Override
-            public void onSerialMessageReceived(byte[] data) {
-
-            }
-
-            @Override
-            public void onScratchValueChanged(int bank, byte[] value) {
-
-            }
-        });
     }
 
     @Override
